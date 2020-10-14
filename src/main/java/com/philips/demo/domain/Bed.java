@@ -1,65 +1,60 @@
-package com.philips.demo.domain;
+package com.philips.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "bed_info")
+@Table(name="bed_info")
+
 public class Bed {
-	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer bed_Id;
-	private String bed_Serial_Number;
-	private boolean bed_Availability;
-	private Integer icu_Number;
-	
+	@Column(name="bed_Id")
+	private int bedID;
+	@Column(name="bed_Serial_Number")
+	private int bedSerialNumber;
+	@Column(name="bed_Availability")
+	private boolean bedAvailability;
+	@Column(name="icu_Number")
+	private int ICUNumber;
 	
 	public Bed() {
-	
-	}
+	  }
 	  
-	public Bed(int bed_Id, String bed_Serial_Number, boolean bed_Availability, int icu_Number) {
-		
-		this.bed_Id = bed_Id;
-		this.bed_Serial_Number = bed_Serial_Number;
-		this.bed_Availability = bed_Availability;
-		this.icu_Number = icu_Number;
+	public Bed(boolean bedAvailability) {
+	    this.bedAvailability = bedAvailability;
+	  }
+	
+	public int getBedID() {
+		return bedID;
 	}
-
-	public Integer getBed_Id() {
-		return bed_Id;
+	public void setBedID(int bedID) {
+		this.bedID = bedID;
 	}
-
-	public void setBed_Id(Integer bed_Id) {
-		this.bed_Id = bed_Id;
+	public int getBedSerialNumber() {
+		return bedSerialNumber;
 	}
-
-	public String getBed_Serial_Number() {
-		return bed_Serial_Number;
+	public void setBedSerialNumber(int bedSerialNumber) {
+		this.bedSerialNumber = bedSerialNumber;
 	}
-
-	public void setBed_Serial_Number(String bed_Serial_Number) {
-		this.bed_Serial_Number = bed_Serial_Number;
+	public boolean isBedAvailability() {
+		return bedAvailability;
 	}
-
-	public boolean isBed_Availability() {
-		return bed_Availability;
+	public void setBedAvailability(boolean bedAvailability) {
+		this.bedAvailability = bedAvailability;
 	}
-
-	public void setBed_Availability(boolean bed_Availability) {
-		this.bed_Availability = bed_Availability;
+	public int getICUNumber() {
+		return ICUNumber;
 	}
-
-	public Integer getIcu_Number() {
-		return icu_Number;
-	}
-
-	public void setIcu_Number(Integer icu_Number) {
-		this.icu_Number = icu_Number;
+	public void setICUNumber(int iCUNumber) {
+		ICUNumber = iCUNumber;
 	}
 	
+	@Override
+	  public String toString() {
+	    return "Bed [bedId=" + bedID + ", isAvailable=" + bedAvailability + "]";
+	  }
+	
+
 }

@@ -1,42 +1,53 @@
 package com.philips.demo.dal;
 
+import com.philips.demo.utils.*;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.philips.demo.domain.Bed;
-import com.philips.demo.utils.GenericUtils;
-
-@Transactional
+import com.philips.Entity.Bed;
 @Repository
-public class JpaBedDao implements BedDao{
+@Transactional
+public class JpaBedDao implements IBedDao {
 
 	@PersistenceContext
-    EntityManager em;
-
-    @Override
-    public Bed addBed(Bed bed) {
-        em.persist(bed);
-        return bed;
-    }
-
-    @Override
-    public List<Bed> findAll() {
-        return GenericUtils.castList(Bed.class, em.createQuery("select b from bed b").getResultList());
-    }
-
-    @Override
-    public Bed findBed(int bedId) {
-        return em.find(Bed.class, bedId);
-    }
-
-    @Override
-    public void deleteBed(int bedId) { // deleting a bed and updating the list of beds in ICU
-        em.createQuery("delete from Bed b where b.bedId = :paramId").setParameter("paramId", bedId).executeUpdate();
-    }
+	private EntityManager em;
 	
+	@Override
+	public Bed addBed(Bed bEntity) {
+		em.persist(bEntity);
+		return bEntity;
+	}
+
+	@Override
+	public List<Bed> viewBedInfo() {
+		
+        return GenericUtils.castList(BedEntity.class, em.createQuery("select b from Bed b").getResultList());
+	}
+
+	@Override
+	public List<Bed> viewBedInfoByICU(Integer ICU_Number) {
+		return GenericUtils.castList(BedEntity.class,em.createQuery("select b from Bed b where b.ICUNumber = :paramId").setParameter("paramId", ICU_Number).getResultList());
+	}
+
+	@Override
+	public List<Bed> viewBedInfoByAvailability(Boolean bed_Availability) {
+		return GenericUtils.castList(Bed.class,em.createQuery("select b  from Bed b where b.bedAvailability = :paramId").setParameter("paramId", bed_Availability).getResultList());
+	}
+
+	
+	@Override
+	public void removeBedInfo(Bed bEntity) {
+		em.remove(bEntity);
+	}
+
+	@Override
+	public Bed findBed(Integer b_ID) {
+		 return em.find(Bed.class, b_ID);
+	}
+
 }

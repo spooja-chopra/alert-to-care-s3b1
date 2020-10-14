@@ -24,7 +24,7 @@ public class PatientServiceImpl implements PatientService{
         Bed bed = beddao.findBed(bedId); 
         if (bed == null) return null;
 
-        if (bed.isBed_Availability()) {
+        if (bed.isBedAvailability()) {
            Patient savedPatient = patientDao.addPatient(patient, bedId);
            return savedPatient;
         } else {
@@ -44,12 +44,12 @@ public class PatientServiceImpl implements PatientService{
 	}
 
 	@Override
-	public boolean dischargePatient(int patientId) {
+	public boolean dischargePatient(int patientId, int bedId) {
 		Patient patient = patientDao.findPatient(patientId);
         if (patient == null) 
         	return false;
 
-        patientDao.deletePatient(patientId);
+        patientDao.deletePatient(patientId, bedId);
         return true;
 	}
 }

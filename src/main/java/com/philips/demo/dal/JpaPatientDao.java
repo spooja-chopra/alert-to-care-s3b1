@@ -17,30 +17,34 @@ import com.philips.demo.utils.GenericUtils;
 public class JpaPatientDao implements PatientDao{
 	
 	@PersistenceContext
-    EntityManager em;
+    EntityManager eManager;
 
 	@Override
 	public Patient addPatient(Patient patient, int bedId) {
-		Bed bed = em.find(Bed.class, bedId);
+		Bed bed = eManager.find(Bed.class, bedId);
 		patient.setBed(bed);
-        em.persist(patient);
+		eManager.persist(patient);
         return patient;
 	}
 
 	@Override
 	public List<Patient> findAll() {
-		return GenericUtils.castList(Patient.class, em.createQuery("SELECT p from Patient p").getResultList());
+		return GenericUtils.castList(Patient.class, eManager.createQuery("SELECT p from Patient p").getResultList());
 	}
 
 	@Override
 	public Patient findPatient(int id) {
-		return em.find(Patient.class, id); 
+		return eManager.find(Patient.class, id); 
 	}
 
 	@Override
-	public void deletePatient(int id) {
+	public void deletePatient(int patientId, int bedId) {
 		// TODO Auto-generated method stub
-		em.createQuery("DELETE FROM Patient WHERE patient_Id = :paramId").setParameter("paramId", id).executeUpdate();
+		Patient patient = eManager.find(Patient.class, patientId);
+		Bed bed = eManager.find(Bed.class, bedId);
+		patient.freeBed(bed);
+		
+		eManager.createQuery("DELETE FROM Patient WHERE patient_Id = :paramId").setParameter("paramId", patientId).executeUpdate();
 	}
 	
 	

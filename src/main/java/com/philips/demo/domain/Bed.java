@@ -1,4 +1,4 @@
-package com.philips.Entity;
+package com.philips.demo.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,9 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="bed_info")
-
+@Table(name = "bed_info")
 public class Bed {
+	
 	@Id
 	@Column(name="bed_Id")
 	private int bedID;
@@ -52,9 +52,8 @@ public class Bed {
 	}
 	
 	@Override
-	  public String toString() {
-	    return "Bed [bedId=" + bedID + ", isAvailable=" + bedAvailability + "]";
-	  }
+	public String toString() {
+		return "Bed [bedId=" + bedID + ", isAvailable=" + bedAvailability + "]";
+	}
 	
-
 }

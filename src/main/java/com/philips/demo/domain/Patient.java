@@ -76,14 +76,24 @@ public class Patient {
 
 
 	public void setBed(Bed bed) {
-		if (bed == null) {
-	      this.bed.setBed_Availability(true);
-	      this.bed = null;
-	    } else {
-	      this.bed = bed; 
-	      this.bed.setBed_Availability(false);
+		if(bed != null) {
+			this.bed = bed; 
+			this.bed.setBedAvailability(false);
 	    }
 	}
+	
+	public void freeBed(Bed bed) {
+		if(bed != null) {
+			this.bed = bed; 
+	        this.bed.setBedAvailability(true);
+	    }
+	}
+	
+	@Override
+	public String toString() {
+	    return "Patient [age=" + age + ", id=" + patient_Id + ", name=" + name + ", phoneNumber=" + phone_Number + "]";
+	}
+
 	
 	
 }

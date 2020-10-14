@@ -9,6 +9,6 @@ public interface PatientDao {
 	Patient addPatient(Patient patient, int bedId);
 	List<Patient> findAll();
 	Patient findPatient(int id);
-	void deletePatient(int id);
+	void deletePatient(int patientID, int bedId);
 
 }

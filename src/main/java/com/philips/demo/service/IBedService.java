@@ -1,11 +1,10 @@
-package com.philips.service;
+package com.philips.demo.service;
 
 import java.util.List;
 
-import com.philips.Entity.Bed;
+import com.philips.demo.domain.Bed;
 
 public interface IBedService {
-
 	Bed addNewBed(Bed bEntity);
 	List<Bed> getAllBedsInfo();
 	Bed getBedById(int bedid);

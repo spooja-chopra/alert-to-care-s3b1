@@ -1,4 +1,4 @@
-package com.philips.web;
+package com.philips.demo.web;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -15,15 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.philips.Entity.Bed;
-import com.philips.exceptions.BedNotFoundException;
-import com.philips.service.IBedService;
+import com.philips.demo.domain.Bed;
+import com.philips.demo.service.IBedService;
 
 @RestController
 public class BedController {
-
 	@Autowired
-	private IBedService bedService;
+	IBedService bedService;
 	
 	@PostMapping("/addBed")
 	public ResponseEntity<Bed> addNewBed(@RequestBody Bed bed) {
@@ -61,17 +59,19 @@ public class BedController {
 	
 	
 	@DeleteMapping("/deleteBedId/{bedid}")
-	public String deleteEmp(@PathVariable("bedid") int bid) throws BedNotFoundException {
+	public ResponseEntity<Bed> deleteEmp(@PathVariable("bedid") int bid) {
 		Bed bEntity1 = bedService.getBedById(bid);
-		if(bEntity1 == null)
-			throw new BedNotFoundException("Bed Not Found for id" + bid);
-		bedService.deleteBed(bid);
-		return "Bed Deleted for the Id" + bid;
-			
+		if(bEntity1 != null) {
+			boolean flag = bedService.deleteBed(bid);
+			if(flag) {
+				return new ResponseEntity<>(bEntity1, HttpStatus.NO_CONTENT);
+			}
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	} 
 	
 	@GetMapping("/viewbyAvailability/{Availability}")
-	public ResponseEntity<List<Bed>> viewbyAvailability1(@PathVariable("Availability") Boolean Availability) throws BedNotFoundException{
+	public ResponseEntity<List<Bed>> viewbyAvailability1(@PathVariable("Availability") Boolean Availability) {
 		List<Bed> beds = bedService.getBedByAvaialability(Availability);
         if (beds == null) {
             return new ResponseEntity<>(new ArrayList<Bed>(), HttpStatus.OK);
@@ -91,18 +91,4 @@ public class BedController {
 	
 	
 	}
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-

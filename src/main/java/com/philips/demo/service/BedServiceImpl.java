@@ -16,7 +16,7 @@ public class BedServiceImpl implements IBedService{
 
 	@Override
 	public Bed addNewBed(Bed bed) {
-		 bed.setBedAvailability(true);
+			//bed.setBedAvailability(true);
 	        return bedDao.addBed(bed);
 	}
 

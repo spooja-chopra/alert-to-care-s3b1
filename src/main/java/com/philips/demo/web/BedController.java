@@ -24,12 +24,11 @@ public class BedController {
 	IBedService bedService;
 	
 	@PostMapping("/addBed")
-	public ResponseEntity<Bed> addNewBed(@RequestBody Bed bed) {
-		 Bed bed1 = new Bed(true);
-	        Bed newBed = bedService.addNewBed(bed1);
-	        HttpHeaders headers = new HttpHeaders();
-	        headers.setLocation(URI.create("/beds/" + newBed.getBedID()));
-	        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+	public ResponseEntity<Bed> addNewBedInfo(@RequestBody Bed bed) {
+	     Bed newBed = bedService.addNewBed(bed);
+	     HttpHeaders headers = new HttpHeaders();
+	     headers.setLocation(URI.create("/beds/" + newBed.getBedID()));
+	     return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 	
 	

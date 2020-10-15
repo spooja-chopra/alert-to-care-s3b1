@@ -2,8 +2,12 @@ name: Limit complexity
 
 on:
   push:
+    paths-ignore:
+    - "mvn"
     branches: [ main ]
   pull_request:
+    paths-ignore:
+    - "mvn"
     branches: [ main ]
 
 jobs:

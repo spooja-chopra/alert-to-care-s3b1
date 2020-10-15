@@ -3,11 +3,11 @@ name: Limit complexity
 on:
   push:
     paths-ignore:
-    - "././mvn"
+    - "./.mvn"
     branches: [ main ]
   pull_request:
     paths-ignore:
-    - "././mvn"
+    - "./.mvn"
     branches: [ main ]
 
 jobs:

@@ -31,11 +31,6 @@ public class JpaBedDao implements BedDao{
 	}
 
 	@Override
-	public List<Bed> viewBedInfoByICU(Integer ICU_Number) {
-		return GenericUtils.castList(Bed.class,em.createQuery("select b from Bed b where b.ICUNumber = :paramId").setParameter("paramId", ICU_Number).getResultList());
-	}
-
-	@Override
 	public List<Bed> viewBedInfoByAvailability(Boolean bed_Availability) {
 		return GenericUtils.castList(Bed.class,em.createQuery("select b  from Bed b where b.bedAvailability = :paramId").setParameter("paramId", bed_Availability).getResultList());
 	}

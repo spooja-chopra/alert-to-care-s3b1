@@ -16,8 +16,8 @@ public class BedServiceImpl implements IBedService{
 
 	@Override
 	public Bed addNewBed(Bed bed) {
-			//bed.setBedAvailability(true);
-	        return bedDao.addBed(bed);
+		//bed.setBedAvailability(true);
+        return bedDao.addBed(bed);
 	}
 
 	@Override
@@ -33,11 +33,6 @@ public class BedServiceImpl implements IBedService{
 	@Override
 	public List<Bed> getBedByAvaialability(boolean bedAvailability) {
 		return bedDao.viewBedInfoByAvailability(bedAvailability);
-	}
-
-	@Override
-	public List<Bed> getBedByICUNumber(int ICUNumber) {
-		return bedDao.viewBedInfoByICU(ICUNumber);
 	}
 
 	@Override

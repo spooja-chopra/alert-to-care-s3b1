@@ -8,7 +8,6 @@ public interface BedDao {
 	
 	public Bed addBed(Bed bEntity );
 	public List<Bed> viewBedInfo();
-	public List<Bed> viewBedInfoByICU(Integer ICU_Number);
 	public List<Bed> viewBedInfoByAvailability(Boolean bed_Availability);
 	public void removeBedInfo(Bed bEntity);
 	public Bed findBed(Integer b_ID);

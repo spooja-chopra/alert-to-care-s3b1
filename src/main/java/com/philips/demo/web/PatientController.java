@@ -47,7 +47,7 @@ public class PatientController {
 		}
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(URI.create("api/patient" + newPatient.getPatient_Id()));
+		headers.setLocation(URI.create("patients" + newPatient.getPatient_Id()));
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 		
 	}

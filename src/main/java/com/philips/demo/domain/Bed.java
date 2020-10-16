@@ -17,14 +17,14 @@ public class Bed {
 	@Column(name="bed_Availability")
 	private boolean bedAvailability;
 	@Column(name="icu_Number")
-	private int ICUNumber;
+	private int ICUNumber;//Start the variable using lower case letter
 	
 	public Bed() {
 	  }
 	  
 	public Bed(boolean bedAvailability) {
 	    this.bedAvailability = bedAvailability;
-	  }
+    }
 	
 	public int getBedID() {
 		return bedID;

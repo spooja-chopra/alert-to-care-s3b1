@@ -27,7 +27,7 @@ public class MonitoringController {
 
 	
 	
-	@PostMapping("/monitoringbpm/{pid}")
+	@PostMapping("/monitor/bpm/{pid}")
 	public ResponseEntity<String> checkForBpm(@PathVariable("pid") int patientId,@RequestBody Vital vital)
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)
@@ -37,7 +37,7 @@ public class MonitoringController {
 		
 	}
 
-	@PostMapping("/monitoringspo2/{pid}")
+	@PostMapping("/monitor/spo2/{pid}")
 	public ResponseEntity<String> checkForSpo2(@PathVariable("pid") int patientId,@RequestBody Vital vital)
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)
@@ -48,7 +48,7 @@ public class MonitoringController {
 		
 	}
 	
-	@PostMapping("/monitoringRespRate/{pid}")
+	@PostMapping("/monitor/respRape/{pid}")
 	public ResponseEntity<String> checkForRespRate(@PathVariable("pid") int patientId,@RequestBody Vital vital)
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)

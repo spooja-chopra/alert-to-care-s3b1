@@ -7,8 +7,7 @@ import com.philips.demo.domain.Bed;
 public interface IBedService {
 	Bed addNewBed(Bed bEntity);
 	List<Bed> getAllBedsInfo();
-	Bed getBedById(int bedid);
+	Bed getBedById(int bedId);
 	List<Bed> getBedByAvaialability(boolean bedAvailability);
-	List<Bed> getBedByICUNumber(int ICUNumber);
-	boolean deleteBed(int bedid);
+	boolean deleteBed(int bedId);
 }

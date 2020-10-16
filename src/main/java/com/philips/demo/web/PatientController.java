@@ -38,7 +38,7 @@ public class PatientController {
 	public ResponseEntity<Patient> addNewPatient(@RequestBody Patient patient){
 		
 		Bed bed = patient.getBed();
-		int bed_Id = bed.getBedID();
+		int bed_Id = bed.getBedId();
 		
 		Patient newPatient = patientService.addNewPatient(patient, bed_Id);
 		
@@ -70,7 +70,7 @@ public class PatientController {
 		Patient patient = patientService.getPatient(patientId);
 		if(patient != null) {
 			Bed bed = patient.getBed();
-			int bedId = bed.getBedID();
+			int bedId = bed.getBedId();
 			boolean flag = patientService.dischargePatient(patientId, bedId);
 			if(flag) {
 				return new ResponseEntity<>(patient, HttpStatus.NO_CONTENT);

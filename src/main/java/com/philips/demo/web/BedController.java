@@ -16,23 +16,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.philips.demo.domain.Bed;
-import com.philips.demo.service.IBedService;
+import com.philips.demo.service.BedService;
 
 @RestController
 public class BedController {
 	@Autowired
-	IBedService bedService;
+	BedService bedService;
 
 	@PostMapping("/beds")
 	public ResponseEntity<Bed> addNewBedInfo(@RequestBody Bed bed) {
 		Bed newBed = bedService.addNewBed(bed);
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(URI.create("/beds/" + newBed.getBedID()));
+		headers.setLocation(URI.create("/beds/" + newBed.getBedId()));
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/beds")
-	public ResponseEntity<List<Bed>> viewAll() {
+	public ResponseEntity<List<Bed>> viewAllBedInfo() {
 		List<Bed> beds = bedService.getAllBedsInfo();
 		if (beds == null) {
 			return new ResponseEntity<>(new ArrayList<Bed>(), HttpStatus.OK);

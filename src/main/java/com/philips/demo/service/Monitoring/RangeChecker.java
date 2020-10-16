@@ -1,10 +1,10 @@
 package com.philips.demo.service.Monitoring;
 
-public class rangeChecker {
+public class RangeChecker {
 	    private int low;
 	    private int high;
 
-	    public rangeChecker(int low, int high){
+	    public RangeChecker(int low, int high){
 	        this.low = low;
 	        this.high = high;
 	    }

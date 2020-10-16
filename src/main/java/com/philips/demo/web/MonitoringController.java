@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.philips.demo.domain.Patient;
 import com.philips.demo.domain.Vital;
 import com.philips.demo.service.PatientService;
-import com.philips.demo.service.Monitoring.IMonitoringService;
+import com.philips.demo.service.Monitoring.MonitoringService;
 
 @RestController
 public class MonitoringController {
 	
 	private String message;
 	@Autowired
-	IMonitoringService monitorService;
+	MonitoringService monitorService;
 	
 	@Autowired
 	PatientService patientService;

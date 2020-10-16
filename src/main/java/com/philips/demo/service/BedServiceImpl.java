@@ -9,7 +9,7 @@ import com.philips.demo.dal.BedDao;
 import com.philips.demo.domain.Bed;
 
 @Service
-public class BedServiceImpl implements IBedService{
+public class BedServiceImpl implements BedService{
 
 	@Autowired
 	BedDao bedDao;

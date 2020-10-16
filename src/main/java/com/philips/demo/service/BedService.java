@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.philips.demo.domain.Bed;
 
-public interface IBedService {
-	Bed addNewBed(Bed bEntity);
+public interface BedService {
+	Bed addNewBed(Bed bedEntity);
 	List<Bed> getAllBedsInfo();
 	Bed getBedById(int bedId);
 	List<Bed> getBedByAvaialability(boolean bedAvailability);

@@ -19,9 +19,9 @@ public class JpaBedDao implements BedDao{
 	private EntityManager em;
 	
 	@Override
-	public Bed addBed(Bed bEntity) {
-		em.persist(bEntity);
-		return bEntity;
+	public Bed addBed(Bed bedEntity) {
+		em.persist(bedEntity);
+		return bedEntity;
 	}
 
 	@Override
@@ -31,19 +31,19 @@ public class JpaBedDao implements BedDao{
 	}
 
 	@Override
-	public List<Bed> viewBedInfoByAvailability(Boolean bed_Availability) {
-		return GenericUtils.castList(Bed.class,em.createQuery("select b  from Bed b where b.bedAvailability = :paramId").setParameter("paramId", bed_Availability).getResultList());
+	public List<Bed> viewBedInfoByAvailability(Boolean bedAvailability) {
+		return GenericUtils.castList(Bed.class,em.createQuery("select b  from Bed b where b.bedAvailability = :paramId").setParameter("paramId", bedAvailability).getResultList());
 	}
 
 	
 	@Override
-	public void removeBedInfo(Bed bEntity) {
-		em.remove(bEntity);
+	public void removeBedInfo(Bed bedEntity) {
+		em.remove(bedEntity);
 	}
 
 	@Override
-	public Bed findBed(Integer b_ID) {
-		 return em.find(Bed.class, b_ID);
+	public Bed findBed(Integer bedId) {
+		 return em.find(Bed.class, bedId);
 	}
 	
 }

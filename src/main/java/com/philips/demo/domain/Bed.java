@@ -11,13 +11,13 @@ public class Bed {
 	
 	@Id
 	@Column(name="bed_Id")
-	private int bedID;
+	private int bedId;
 	@Column(name="bed_Serial_Number")
 	private int bedSerialNumber;
 	@Column(name="bed_Availability")
 	private boolean bedAvailability;
 	@Column(name="icu_Number")
-	private int ICUNumber;//Start the variable using lower case letter
+	private int icuNumber;
 	
 	public Bed() {
 	  }
@@ -26,11 +26,11 @@ public class Bed {
 	    this.bedAvailability = bedAvailability;
     }
 	
-	public int getBedID() {
-		return bedID;
+	public int getBedId() {
+		return bedId;
 	}
-	public void setBedID(int bedID) {
-		this.bedID = bedID;
+	public void setBedId(int bedId) {
+		this.bedId = bedId;
 	}
 	public int getBedSerialNumber() {
 		return bedSerialNumber;
@@ -44,16 +44,16 @@ public class Bed {
 	public void setBedAvailability(boolean bedAvailability) {
 		this.bedAvailability = bedAvailability;
 	}
-	public int getICUNumber() {
-		return ICUNumber;
+	public int geticuNumber() {
+		return icuNumber;
 	}
-	public void setICUNumber(int iCUNumber) {
-		ICUNumber = iCUNumber;
+	public void seticuNumber(int icuNumber) {
+		this.icuNumber = icuNumber;
 	}
 	
 	@Override
 	public String toString() {
-		return "Bed [bedId=" + bedID + ", isAvailable=" + bedAvailability + "]";
+		return "Bed [bedId=" + bedId + ", isAvailable=" + bedAvailability + "]";
 	}
 	
 }

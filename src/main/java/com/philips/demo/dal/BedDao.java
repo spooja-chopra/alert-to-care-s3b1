@@ -6,9 +6,9 @@ import com.philips.demo.domain.Bed;
 
 public interface BedDao {
 	
-	public Bed addBed(Bed bEntity );
+	public Bed addBed(Bed bedEntity );
 	public List<Bed> viewBedInfo();
-	public List<Bed> viewBedInfoByAvailability(Boolean bed_Availability);
-	public void removeBedInfo(Bed bEntity);
-	public Bed findBed(Integer b_ID);
+	public List<Bed> viewBedInfoByAvailability(Boolean bedAvailability);
+	public void removeBedInfo(Bed bedEntity);
+	public Bed findBed(Integer bedId);
 }

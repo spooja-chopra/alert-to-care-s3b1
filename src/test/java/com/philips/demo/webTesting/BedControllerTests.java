@@ -1,5 +1,5 @@
 package com.philips.demo.webTesting;
 
-public class BedControllerTesting {
+public class BedControllerTests {
 
 }

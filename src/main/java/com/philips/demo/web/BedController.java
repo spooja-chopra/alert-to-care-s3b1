@@ -64,8 +64,8 @@ public class BedController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/beds/{Availability}")
-	public ResponseEntity<List<Bed>> viewByAvailability(@PathVariable("Availability") Boolean availability) {
+	@GetMapping("/beds/available/{availability}")
+	public ResponseEntity<List<Bed>> viewByAvailability(@PathVariable("availability") Boolean availability) {
 		List<Bed> beds = bedService.getBedByAvaialability(availability);
 		if (beds == null) {
 			return new ResponseEntity<>(new ArrayList<Bed>(), HttpStatus.OK);

@@ -15,9 +15,9 @@ public class Patient {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer patient_Id;//primitive data types
+	private int patient_Id;//primitive data types
 	private String name;
-	private Integer age;
+	private int age;
 	private String phone_Number;
 	
 	
@@ -29,19 +29,20 @@ public class Patient {
 	
 	}
 	
-	public Patient(String name, int age, String phone_Number) {
+	public Patient(String name, int age, String phone_Number, Bed bed) {
 	    this.name = name;
 	    this.age = age;
 	    this.phone_Number = phone_Number;
+	    this.bed = bed;
 	}
 
 
 	
-	public Integer getPatient_Id() {
+	public int getPatient_Id() {
 		return patient_Id;
 	}
 
-	public void setPatient_Id(Integer patient_Id) {
+	public void setPatient_Id(int patient_Id) {
 		this.patient_Id = patient_Id;
 	}
 
@@ -53,11 +54,11 @@ public class Patient {
 		this.name = name;
 	}
 
-	public Integer getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 

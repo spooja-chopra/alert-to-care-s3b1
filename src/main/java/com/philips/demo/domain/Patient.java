@@ -1,6 +1,7 @@
 package com.philips.demo.domain;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +16,14 @@ public class Patient {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int patient_Id;//primitive data types
+	@Column(name = "patient_Id")
+	private int patientId;
+	@Column(name = "name")
 	private String name;
+	@Column(name = "age")
 	private int age;
-	private String phone_Number;
+	@Column(name = "phone_Number")
+	private String phoneNumber;
 	
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
@@ -29,21 +34,21 @@ public class Patient {
 	
 	}
 	
-	public Patient(String name, int age, String phone_Number, Bed bed) {
+	public Patient(String name, int age, String phoneNumber, Bed bed) {
 	    this.name = name;
 	    this.age = age;
-	    this.phone_Number = phone_Number;
+	    this.phoneNumber = phoneNumber;
 	    this.bed = bed;
 	}
 
 
 	
-	public int getPatient_Id() {
-		return patient_Id;
+	public int getPatientId() {
+		return patientId;
 	}
 
-	public void setPatient_Id(int patient_Id) {
-		this.patient_Id = patient_Id;
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
 	}
 
 	public String getName() {
@@ -62,12 +67,12 @@ public class Patient {
 		this.age = age;
 	}
 
-	public String getPhone_Number() {
-		return phone_Number;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhone_Number(String phone_Number) {
-		this.phone_Number = phone_Number;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 
@@ -92,7 +97,7 @@ public class Patient {
 	
 	@Override
 	public String toString() {
-	    return "Patient [age=" + age + ", id=" + patient_Id + ", name=" + name + ", phoneNumber=" + phone_Number + "]";
+	    return "Patient [age=" + age + ", id=" + patientId + ", name=" + name + ", phoneNumber=" + phoneNumber + "]";
 	}
 
 	

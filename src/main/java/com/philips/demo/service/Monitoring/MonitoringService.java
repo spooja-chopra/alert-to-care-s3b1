@@ -1,4 +1,4 @@
-package com.philips.demo.service.Monitoring;
+package com.philips.demo.service.monitoring;
 
 public interface MonitoringService {
 	

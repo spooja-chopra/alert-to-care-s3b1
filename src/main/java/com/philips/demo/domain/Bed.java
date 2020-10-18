@@ -10,57 +10,60 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "bed_info")
 public class Bed {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="bed_Id")
+	@Column(name = "bed_Id")
 	private int bedId;
-	@Column(name="bed_Serial_Number")
+	@Column(name = "bed_Serial_Number")
 	private int bedSerialNumber;
-	@Column(name="bed_Availability")
+	@Column(name = "bed_Availability")
 	private boolean bedAvailability;
-	@Column(name="icu_Number")
+	@Column(name = "icu_Number")
 	private int icuNumber;
-	
+
 	public Bed() {
-	  }
-	  
+	}
+
 	public Bed(boolean bedAvailability) {
-	    this.bedAvailability = bedAvailability;
-    }
-	
+		this.bedAvailability = bedAvailability;
+	}
+
 	public int getBedId() {
 		return bedId;
 	}
+
 	public void setBedId(int bedId) {
 		this.bedId = bedId;
 	}
+
 	public int getBedSerialNumber() {
 		return bedSerialNumber;
 	}
+
 	public void setBedSerialNumber(int bedSerialNumber) {
 		this.bedSerialNumber = bedSerialNumber;
 	}
+
 	public boolean isBedAvailability() {
 		return bedAvailability;
 	}
+
 	public void setBedAvailability(boolean bedAvailability) {
 		this.bedAvailability = bedAvailability;
 	}
+
 	public int geticuNumber() {
 		return icuNumber;
 	}
-	public void seticuNumber(int icuNumber) {
+
+	public void setIcuNumber(int icuNumber) {
 		this.icuNumber = icuNumber;
 	}
-	
-	public Bed getBed() {
-		return getBed();
-	}
-	
+
 	@Override
 	public String toString() {
 		return "Bed [bedId=" + bedId + ", isAvailable=" + bedAvailability + "]";
 	}
-	
+
 }

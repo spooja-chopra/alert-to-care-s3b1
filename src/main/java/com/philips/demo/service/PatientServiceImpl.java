@@ -33,8 +33,7 @@ public class PatientServiceImpl implements PatientService{
         if (bed == null) return null;
 
         if (bed.isBedAvailability()) {
-           Patient savedPatient = patientDao.addPatient(patient, bedId);
-           return savedPatient;
+           return patientDao.addPatient(patient, bedId);
         } else {
             return null;
         }

@@ -34,7 +34,7 @@ public class PatientController {
 	public ResponseEntity<List<Patient>> getAllPatients(){
 		List<Patient> patients = patientService.getAllPatients();
 		if(patients == null) {
-			return new ResponseEntity<>(new ArrayList<Patient>(), HttpStatus.OK);
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(patients, HttpStatus.OK);
 	}
@@ -43,16 +43,16 @@ public class PatientController {
 	public ResponseEntity<Patient> addNewPatient(@RequestBody Patient patient){
 		
 		Bed bed = patient.getBed();
-		int bed_Id = bed.getBedId();
+		int bedId = bed.getBedId();
 		
-		Patient newPatient = patientService.addNewPatient(patient, bed_Id);
+		Patient newPatient = patientService.addNewPatient(patient, bedId);
 		
 		if(newPatient == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(URI.create("patients/" + newPatient.getPatient_Id()));
+		headers.setLocation(URI.create("patients/" + newPatient.getPatientId()));
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 		
 	}

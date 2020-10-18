@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.philips.demo.dal.BedDao;
 import com.philips.demo.dal.JpaBedDao;
 import com.philips.demo.domain.Bed;
-import com.philips.demo.domain.Patient;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -38,7 +37,7 @@ public class BedDaoTests {
 	
 		assertThat(getFromDb.getBedSerialNumber()).isEqualTo(28);
 		assertThat(getFromDb.geticuNumber()).isEqualTo(2);
-		assertThat(getFromDb.isBedAvailability()).isEqualTo(true);
+		assertThat(getFromDb.isBedAvailability()).isTrue();
 		assertThat(getFromDb).isEqualTo(savedInDb);
 		
 	}
@@ -53,7 +52,7 @@ public class BedDaoTests {
 	
 		assertThat(getFromDb.get(0).getBedSerialNumber()).isEqualTo(28);
 		assertThat(getFromDb.get(0).geticuNumber()).isEqualTo(2);
-		assertThat(getFromDb.get(0).isBedAvailability()).isEqualTo(true);
+		assertThat(getFromDb.get(0).isBedAvailability()).isTrue();
 		assertThat(getFromDb.get(0)).isEqualTo(savedInDb);
 		
 	}	
@@ -79,7 +78,7 @@ public class BedDaoTests {
 		
 		List<Bed> getFromDb = bedDao.viewBedInfoByAvailability(true);
 	
-		assertThat(getFromDb.get(0).isBedAvailability()).isEqualTo(true);
+		assertThat(getFromDb.get(0).isBedAvailability()).isTrue();
 		assertThat(getFromDb.get(0)).isEqualTo(savedInDb);
 		
 	}	
@@ -88,7 +87,7 @@ public class BedDaoTests {
 		Bed bed = new Bed();
 		bed.setBedSerialNumber(28);
 		bed.setBedAvailability(true);
-		bed.seticuNumber(2);
+		bed.setIcuNumber(2);
 		entityManager.persist(bed);
 		return bed;
 	}

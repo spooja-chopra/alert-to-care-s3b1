@@ -36,11 +36,11 @@ public class PatientDaoTests {
 		Patient newPatient = getFirstPatient();
 		
 		Patient addInDb = patientDao.addPatient(newPatient, newPatient.getBed().getBedId());
-		Patient getFromDb = entityManager.find(Patient.class, newPatient.getPatient_Id());
+		Patient getFromDb = entityManager.find(Patient.class, newPatient.getPatientId());
 		
 		assertThat(getFromDb.getAge()).isEqualTo(23);
 		assertThat(getFromDb.getName()).isEqualTo("Ravikumar Tiwari");
-		assertThat(getFromDb.getPhone_Number()).isEqualTo("1258795367");
+		assertThat(getFromDb.getPhoneNumber()).isEqualTo("1258795367");
 		assertThat(getFromDb).isEqualTo(addInDb);
 	}
 	
@@ -50,7 +50,7 @@ public class PatientDaoTests {
 		Patient newPatient = getFirstPatient();
 		
 		Patient savedInDb = entityManager.persist(newPatient);
-		Patient getFromDb = patientDao.findPatient(savedInDb.getPatient_Id());
+		Patient getFromDb = patientDao.findPatient(savedInDb.getPatientId());
 		
 		assertThat(getFromDb).isEqualTo(savedInDb);
 	}
@@ -78,7 +78,7 @@ public class PatientDaoTests {
 		
 		patient1.setName("Ravikumar Tiwari");
 		patient1.setAge(23);
-		patient1.setPhone_Number("1258795367");
+		patient1.setPhoneNumber("1258795367");
 		patient1.setBed(getBedForFirstPatient());
 		
 		return patient1;
@@ -89,7 +89,7 @@ public class PatientDaoTests {
 		
 		patient2.setName("Ram Vaishnav");
 		patient2.setAge(25);
-		patient2.setPhone_Number("4378382847");
+		patient2.setPhoneNumber("4378382847");
 		patient2.setBed(getBedForSecondPatient());
 		
 		return patient2;
@@ -100,7 +100,7 @@ public class PatientDaoTests {
 		
 		bed1.setBedSerialNumber(101);
 		bed1.setBedAvailability(true);
-		bed1.seticuNumber(1);
+		bed1.setIcuNumber(1);
 		entityManager.persist(bed1);
 		
 		return bed1;
@@ -111,7 +111,7 @@ public class PatientDaoTests {
 		
 		bed2.setBedSerialNumber(107);
 		bed2.setBedAvailability(true);
-		bed2.seticuNumber(2);
+		bed2.setIcuNumber(2);
 		entityManager.persist(bed2);
 		
 		return bed2;

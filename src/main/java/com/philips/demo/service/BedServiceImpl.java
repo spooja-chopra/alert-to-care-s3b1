@@ -9,15 +9,21 @@ import com.philips.demo.dal.BedDao;
 import com.philips.demo.domain.Bed;
 
 @Service
-public class BedServiceImpl implements BedService{
+public class BedServiceImpl implements BedService {
 
 	@Autowired
 	BedDao bedDao;
+	
+	public void setBedDao(BedDao bedDao) {
+		this.bedDao = bedDao;
+	}
 
 	@Override
 	public Bed addNewBed(Bed bed) {
-		//bed.setBedAvailability(true);
-        return bedDao.addBed(bed);
+		if(!bed.isBedAvailability()) {
+			bed.setBedAvailability(true);
+		}
+		return bedDao.addBed(bed);
 	}
 
 	@Override
@@ -35,21 +41,16 @@ public class BedServiceImpl implements BedService{
 		return bedDao.viewBedInfoByAvailability(bedAvailability);
 	}
 
-	
 	@Override
 	public boolean deleteBed(int bedid) {
 		Bed bed = bedDao.findBed(bedid);
-        if (bed == null) 
-        	return false;
-        if (bed.isBedAvailability()) {
-            bedDao.removeBedInfo(bed);
-            return true;
-        }
+		if (bed == null)
+			return false;
+		if (bed.isBedAvailability()) {
+			bedDao.removeBedInfo(bed);
+			return true;
+		}
 
-        return false;
-    }
-	
-	 public void setBedDao(BedDao bedDao) {
-	    	this.bedDao = bedDao;
-	    }
+		return false;
+	}
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.philips.demo.domain.Patient;
 import com.philips.demo.domain.Vital;
 import com.philips.demo.service.PatientService;
-import com.philips.demo.service.Monitoring.MonitoringService;
+import com.philips.demo.service.monitoring.MonitoringService;
 
 @RestController
 public class MonitoringController {

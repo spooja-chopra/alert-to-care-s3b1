@@ -43,7 +43,7 @@ public class PatientControllerTests {
 
         Patient patient = new Patient();
         patient.setBed(bed);
-        patient.setPatient_Id(1);
+        patient.setPatientId(1);
 
         PatientService ps = Mockito.mock(PatientService.class);
         Mockito.when(ps.addNewPatient(patient, 1)).thenReturn(patient);
@@ -67,7 +67,7 @@ public class PatientControllerTests {
 
         ResponseEntity<List<Patient>> response = pc.getAllPatients();
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().size() == 0);
+        assertEquals(0, response.getBody().size());
     }
 	
 	@Test
@@ -132,7 +132,7 @@ public class PatientControllerTests {
 		Bed bed = new Bed();
 		bed.setBedId(2);
 		Patient patient = new Patient();
-		patient.setPatient_Id(1);
+		patient.setPatientId(1);
 		patient.setBed(bed);
 		  
         PatientService ps = Mockito.mock(PatientService.class);
@@ -151,7 +151,7 @@ public class PatientControllerTests {
 		Bed bed = new Bed();
 		bed.setBedId(1);
 		Patient patient = new Patient();
-		patient.setPatient_Id(1);
+		patient.setPatientId(1);
 		patient.setBed(bed);
 		  
         PatientService ps = Mockito.mock(PatientService.class);

@@ -16,7 +16,7 @@ import com.philips.demo.service.BedService;
 import com.philips.demo.web.BedController;
 
 public class BedControllerTests {
-	/*@Test
+	@Test
     public void addNewBedInfoTest() {
         Bed bed = new Bed();
         bed.setBedId(1);
@@ -27,8 +27,8 @@ public class BedControllerTests {
 
         ResponseEntity<Bed> response = bc.addNewBedInfo(bed);
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        assertEquals("/bed[]/1", response.getHeaders().getLocation().toString());
-    }*/
+        assertEquals("beds/1", response.getHeaders().getLocation().toString());
+    }
 
     @Test
     public void getAllBedsReturnsEmptyListWhenThereAreNoBeds() {
@@ -39,7 +39,7 @@ public class BedControllerTests {
 
         ResponseEntity<List<Bed>> response = bc.viewAllBedInfo();
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().size() == 0);
+        assertEquals(0, response.getBody().size());
     }
   
     @Test

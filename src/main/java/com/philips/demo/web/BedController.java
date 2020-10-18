@@ -31,7 +31,7 @@ public class BedController {
 	public ResponseEntity<Bed> addNewBedInfo(@RequestBody Bed bed) {
 		Bed newBed = bedService.addNewBed(bed);
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(URI.create("/beds/" + newBed.getBedId()));
+		headers.setLocation(URI.create("beds/" + newBed.getBedId()));
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 
@@ -39,7 +39,7 @@ public class BedController {
 	public ResponseEntity<List<Bed>> viewAllBedInfo() {
 		List<Bed> beds = bedService.getAllBedsInfo();
 		if (beds == null) {
-			return new ResponseEntity<>(new ArrayList<Bed>(), HttpStatus.OK);
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(beds, HttpStatus.OK);
 
@@ -72,7 +72,7 @@ public class BedController {
 	public ResponseEntity<List<Bed>> viewByAvailability(@PathVariable("availability") Boolean availability) {
 		List<Bed> beds = bedService.getBedByAvaialability(availability);
 		if (beds == null) {
-			return new ResponseEntity<>(new ArrayList<Bed>(), HttpStatus.OK);
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(beds, HttpStatus.OK);
 

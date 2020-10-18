@@ -39,7 +39,7 @@ public class JpaPatientDao implements PatientDao{
 
 	@Override
 	public void deletePatient(int patientId, int bedId) {
-		// TODO Auto-generated method stub
+		
 		Patient patient = eManager.find(Patient.class, patientId);
 		Bed bed = eManager.find(Bed.class, bedId);
 		patient.freeBed(bed);

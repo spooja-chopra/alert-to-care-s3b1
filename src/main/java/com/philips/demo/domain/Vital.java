@@ -1,28 +1,41 @@
 package com.philips.demo.domain;
 
 public class Vital {
-	private Integer getBpm;
-	private Integer getSpo2;
-	private Integer getRespRate;
+	private static int Bpm;
+	private static int Spo2;
+	private static int RespRate;
 	
-	public Vital(Integer getBpm, Integer getSpo2, Integer getRespRate) {
+	public int getBpm() {
+		return Bpm;
+	}
+	
+	public static Integer setBpm(int bpm) {
+		return Bpm = bpm;
+	}
+	
+	public int getSpo2() {
+		return Spo2;
+	}
+	
+	public static Integer setSpo2(int spo2) {
+		return Spo2 = spo2;
+	}
+	
+	public int getRespRate() {
+		return RespRate;
+	}
+	
+	public static Integer setRespRate(int respRate) {
+		return RespRate = respRate;
+	}
+
+	public Vital(int bpm, int spo2, int respRate) {
 		super();
-		this.getBpm = getBpm;
-		this.getSpo2 = getSpo2;
-		this.getRespRate = getRespRate;
+		Bpm = bpm;
+		Spo2 = spo2;
+		RespRate = respRate;
 	}
 	
-	public Integer getGetBpm() {
-		return getBpm;
-	}
-	
-	public Integer getGetSpo2() {
-		return getSpo2;
-	}
-	
-	public Integer getGetRespRate() {
-		return getRespRate;
-	}
 	
 	
 }

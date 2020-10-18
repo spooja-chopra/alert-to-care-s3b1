@@ -23,7 +23,11 @@ public class BedController {
 	@Autowired
 	BedService bedService;
 
-	@PostMapping("/beds")
+	public void setBedService(BedService bedService) {
+		this.bedService=bedService;
+	}	
+	
+	@PostMapping("/bed")
 	public ResponseEntity<Bed> addNewBedInfo(@RequestBody Bed bed) {
 		Bed newBed = bedService.addNewBed(bed);
 		HttpHeaders headers = new HttpHeaders();
@@ -31,7 +35,7 @@ public class BedController {
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/beds")
+	@GetMapping("/bed")
 	public ResponseEntity<List<Bed>> viewAllBedInfo() {
 		List<Bed> beds = bedService.getAllBedsInfo();
 		if (beds == null) {
@@ -41,7 +45,7 @@ public class BedController {
 
 	}
 
-	@GetMapping("/beds/{bedid}")
+	@GetMapping("/bed/{bedid}")
 	public ResponseEntity<Bed> viewBedInfoById(@PathVariable("bedid") int bid) {
 		Bed bed = bedService.getBedById(bid);
 
@@ -52,8 +56,8 @@ public class BedController {
 		}
 	}
 
-	@DeleteMapping("/beds/{bedid}")
-	public ResponseEntity<Bed> deleteEmp(@PathVariable("bedid") int bid) {
+	@DeleteMapping("/bed/{bedid}")
+	public ResponseEntity<Bed> deleteBed(@PathVariable("bedid") int bid) {
 		Bed bEntity1 = bedService.getBedById(bid);
 		if (bEntity1 != null) {
 			boolean flag = bedService.deleteBed(bid);
@@ -64,7 +68,7 @@ public class BedController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/beds/available/{availability}")
+	@GetMapping("/bed/available/{availability}")
 	public ResponseEntity<List<Bed>> viewByAvailability(@PathVariable("availability") Boolean availability) {
 		List<Bed> beds = bedService.getBedByAvaialability(availability);
 		if (beds == null) {
@@ -73,4 +77,6 @@ public class BedController {
 		return new ResponseEntity<>(beds, HttpStatus.OK);
 
 	}
+	
+	
 }

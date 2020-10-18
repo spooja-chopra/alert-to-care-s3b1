@@ -35,6 +35,7 @@ public class BedServiceImpl implements BedService{
 		return bedDao.viewBedInfoByAvailability(bedAvailability);
 	}
 
+	
 	@Override
 	public boolean deleteBed(int bedid) {
 		Bed bed = bedDao.findBed(bedid);
@@ -47,4 +48,8 @@ public class BedServiceImpl implements BedService{
 
         return false;
     }
+	
+	 public void setBedDao(BedDao bedDao) {
+	    	this.bedDao = bedDao;
+	    }
 }

@@ -26,7 +26,7 @@ public class MonitoringServiceImp implements MonitoringService {
 	public String vitalCheckRespRate(int respRate) {
 		RangeChecker checker = new RangeChecker(30, 95);
 		message = checker.contains(respRate);
-		return "respRate" + message;
+		return "RespRate" + message;
 	}
 
 }

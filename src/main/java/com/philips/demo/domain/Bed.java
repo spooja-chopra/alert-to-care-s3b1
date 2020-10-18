@@ -54,6 +54,10 @@ public class Bed {
 		this.icuNumber = icuNumber;
 	}
 	
+	public Bed getBed() {
+		return getBed();
+	}
+	
 	@Override
 	public String toString() {
 		return "Bed [bedId=" + bedId + ", isAvailable=" + bedAvailability + "]";

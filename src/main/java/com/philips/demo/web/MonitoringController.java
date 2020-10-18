@@ -32,7 +32,7 @@ public class MonitoringController {
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		 message = monitorService.vitalCheckBpm(vital.getGetBpm());
+		 message = monitorService.vitalCheckBpm(vital.getBpm());
 		return new ResponseEntity<>(message, HttpStatus.OK);
 		
 	}
@@ -42,7 +42,7 @@ public class MonitoringController {
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		 message = monitorService.vitalCheckSpo2(vital.getGetSpo2());
+		 message = monitorService.vitalCheckSpo2(vital.getSpo2());
 		return new ResponseEntity<>(message, HttpStatus.OK);
 		
 		
@@ -53,7 +53,7 @@ public class MonitoringController {
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)
 			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		 message = monitorService.vitalCheckRespRate(vital.getGetRespRate());
+		 message = monitorService.vitalCheckRespRate(vital.getRespRate());
 		return new ResponseEntity<>(message, HttpStatus.OK);
 		
 		

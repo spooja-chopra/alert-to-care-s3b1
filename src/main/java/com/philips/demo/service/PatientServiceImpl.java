@@ -17,11 +17,19 @@ public class PatientServiceImpl implements PatientService{
 	PatientDao patientDao;
 
     @Autowired
-    BedDao beddao;
+    BedDao bedDao;
+    
+    public void setBedDao(BedDao bedDao) {
+    	this.bedDao = bedDao;
+    }
+    
+    public void setPatientDao(PatientDao patientDao) {
+    	this.patientDao = patientDao;
+    }
     
     @Override
     public Patient addNewPatient(Patient patient, int bedId) {
-        Bed bed = beddao.findBed(bedId); 
+        Bed bed = bedDao.findBed(bedId); 
         if (bed == null) return null;
 
         if (bed.isBedAvailability()) {

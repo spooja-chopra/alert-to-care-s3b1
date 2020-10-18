@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -67,7 +68,9 @@ public class PatientServiceImplTest {
 	@Test
 	public void getAllPatientsTest() {
 		PatientDao patientDao = Mockito.mock(PatientDao.class);
-        List<Patient> patients = List.of(new Patient());
+        List<Patient> patients = new ArrayList<>();
+        patients.add(new Patient());
+        patients.add(new Patient());
 
         Mockito.when(patientDao.findAll()).thenReturn(patients);
 

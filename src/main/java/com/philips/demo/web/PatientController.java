@@ -25,6 +25,11 @@ public class PatientController {
 	@Autowired
 	PatientService patientService;
 	
+	public void setPatientService(PatientService patientService) {
+		
+		this.patientService = patientService;
+	}
+	
 	@GetMapping("/patients")
 	public ResponseEntity<List<Patient>> getAllPatients(){
 		List<Patient> patients = patientService.getAllPatients();
@@ -47,7 +52,7 @@ public class PatientController {
 		}
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(URI.create("patients" + newPatient.getPatient_Id()));
+		headers.setLocation(URI.create("patients/" + newPatient.getPatient_Id()));
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 		
 	}
@@ -78,4 +83,5 @@ public class PatientController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+
 }

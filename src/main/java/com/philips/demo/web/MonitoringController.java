@@ -24,7 +24,9 @@ public class MonitoringController {
 	@Autowired
 	PatientService patientService;
 	
-
+	public void setMonitoringService(MonitoringService monitorService) {
+		this.monitorService = monitorService;
+	}
 	
 	
 	@PostMapping("/monitor/bpm/{pid}")

@@ -4,6 +4,7 @@ public class Vital {
 	private static int Bpm;
 	private static int Spo2;
 	private static int RespRate;
+
 	
 	public int getBpm() {
 		return Bpm;
@@ -29,11 +30,8 @@ public class Vital {
 		return RespRate = respRate;
 	}
 
-	public Vital(int bpm, int spo2, int respRate) {
-		super();
-		Bpm = bpm;
-		Spo2 = spo2;
-		RespRate = respRate;
+	public Vital() {
+	
 	}
 	
 	

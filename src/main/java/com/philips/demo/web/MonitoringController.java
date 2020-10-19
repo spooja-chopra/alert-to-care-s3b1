@@ -50,7 +50,7 @@ public class MonitoringController {
 		
 	}
 	
-	@PostMapping("/monitor/respRape/{pid}")
+	@PostMapping("/monitor/respRate/{pid}")
 	public ResponseEntity<String> checkForRespRate(@PathVariable("pid") int patientId,@RequestBody Vital vital)
 	{	 Patient patient = patientService.getPatient(patientId);
 		if (patient == null)

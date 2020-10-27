@@ -8,23 +8,30 @@
            required
            [(ngModel)]="vitals.bpm" name="name">
   </div>
+  <button class="btn" type="submit" id="Registration-button" (click)="checkBpm(vitals.bpm)">
+    Check BPM
+  </button><br>
+
   
-  <div class="form-group">
+  <br/><div class="form-group">
     <label for="alterEgo">SPO2</label>
     <input type="text"  class="form-control" id="spo2" placeholder="patient's spo2"
           required [(ngModel)]="vitals.spo2" name="spo2">
   </div>
+  <button class="btn" type="submit" id="Registration-button" (click)="checkSpo2(vitals.spo2)">
+    Check spo2
+  </button><br>
   
-  <div class="form-group">
+  <br><div class="form-group">
     <label for="power">RespRate</label>
     <input class="form-control"  id="respRate" placeholder="patient's respRate"
             required
             [(ngModel)]="vitals.respRate" name="respRate">
   </div>
-
-  <br /><button class="btn" type="submit" id="Registration-button" (click)="checkVitals(vitals)">
+  <button class="btn" type="submit" id="Registration-button" (click)="checkRespRate(vitals.respRate)">
     Check Vitals
   </button>
+
 </div>
   <div class="footer">
     <footer>

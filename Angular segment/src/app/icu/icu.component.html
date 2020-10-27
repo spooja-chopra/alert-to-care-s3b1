@@ -1,0 +1,30 @@
+<div class="header">
+    <h1>Alert To Care</h1>
+  </div>
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a routerLink="icu1" class="nav-link" routerLinkActive="active">ICU 1</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="icu2" class="nav-link" routerLinkActive="active">ICU 2</a>
+      </li>
+    </ul>
+  </nav>
+
+  <br>
+  <div class="left">
+    <img  [src]="myimage" routerLink = "icu1">
+    <li style="display: block;"> ICU 1</li>
+    <li style="display: block;" style="text-decoration: brown;" style="font-family: Georgia, 'Times New Roman', Times, serif;" > Layout : L-Shaped</li>
+
+  </div>
+
+  <br>
+  <div class="left">
+    <img [src]="myimage" routerLink = "icu2">
+    <li style="display: block;">ICU 2</li>
+    <li style="display: block;" style="text-decoration: brown;" style="font-family: Georgia, 'Times New Roman', Times, serif;" > Layout : Parallel-Shaped</li>
+  </div>

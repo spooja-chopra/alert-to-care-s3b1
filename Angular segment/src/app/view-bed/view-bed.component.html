@@ -1,0 +1,39 @@
+<div class="header">
+    <h1>Alert To Care</h1>
+  </div>
+<div class = "container">
+    <div class = "card">
+        <h3 class="text-center">List of Beds</h3>
+        <div class = "card-body">
+            <table class= "table table-striped">
+                <thead>
+                    <th>Bed Id</th>
+                    <th>Bed Serial Number</th>
+                    <th>Availability</th>
+                    <th>ICU Number</th>
+                
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let bed of beds">
+                    <td> {{bed.bedId}} </td>
+                    <td> {{bed.bedSerialNumber}} </td>
+                    <td> {{bed.bedAvailability}} </td>
+                    <td> {{bed.icuNumber}} </td>
+                    <td><button class="btn" type="submit" id="Delete-button" (click)="deleteBed(bed.bedId)">
+                        <i class="fa fa-close"></i>
+                        Delete
+                      </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <footer>
+      Philips Boot camp case study
+    </footer>
+  
+  </div>

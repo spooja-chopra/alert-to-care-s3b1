@@ -1,0 +1,34 @@
+<div class="header">
+    <h1>Alert To Care</h1>
+  </div>
+<div style="padding: 100px; background-origin: padding-box;" > 
+  <div class="form-group" >
+    <label for="name">BPM</label>
+    <input type="text" class="form-control" id="bpm" placeholder="patient's bpm"
+           required
+           [(ngModel)]="vitals.bpm" name="name">
+  </div>
+  
+  <div class="form-group">
+    <label for="alterEgo">SPO2</label>
+    <input type="text"  class="form-control" id="spo2" placeholder="patient's spo2"
+          required [(ngModel)]="vitals.spo2" name="spo2">
+  </div>
+  
+  <div class="form-group">
+    <label for="power">RespRate</label>
+    <input class="form-control"  id="respRate" placeholder="patient's respRate"
+            required
+            [(ngModel)]="vitals.respRate" name="respRate">
+  </div>
+
+  <br /><button class="btn" type="submit" id="Registration-button" (click)="checkVitals(vitals)">
+    Check Vitals
+  </button>
+</div>
+  <div class="footer">
+    <footer>
+      Philips Boot camp case study
+    </footer>
+  
+  </div>

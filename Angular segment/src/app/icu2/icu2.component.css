@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .header {
+    border: 1px ;
+    background-color: lightskyblue;
+    padding: 20px;
+  }
+
+  .red{
+      background-color: red !important;
+  }
+
+  .green{
+      background-color: green !important;
+  }
+
+  .col-sm-3{
+      width: 200px !important;
+      padding-left: 400px !important;
+      padding-right: 400px !important;
+  }
+
+
+  .footer {
+  
+    text-align: end;
+    font-style: italic;
+    border: 1px solid bisque ;
+    background-color: blue;
+    padding: 20px;
+  }

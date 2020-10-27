@@ -1,0 +1,42 @@
+<div class="header">
+  <h1>Alert To Care</h1>
+</div>
+
+<div div style="background-color:rgb(0, 7, 8);color:white;padding:100px;">
+
+<h3 style="text-align: center; color: white;">Add New Bed</h3>
+  <br>Please Enter the Bed Serial Number<input type="number" class="form-control" id="serial" placeholder="Serial Number"
+required
+[(ngModel)]="bed.bedSerialNumber" />
+
+<br>Availability<input type="boolean" class="form-control" id="availability" placeholder="Availability"
+required
+[(ngModel)]="bed.bedAvailability" />
+
+<!-- <br><input type="number" class="form-control" id="icu" placeholder="ICU Number"
+required
+[(ngModel)]="bed.icuNumber" /> -->
+
+<form >
+  <br><label for="cars">Choose the ICU number : </label>
+  <select name="cars" id="icu" required
+  [(ngModel)]="bed.icuNumber">
+    <option value="1" style="font-family: Georgia, 'Times New Roman', Times, serif;"> ICU 1</option>
+    <option value="2" style="font-family: Georgia, 'Times New Roman', Times, serif;"> ICU 2</option>
+  </select>
+</form>
+
+
+
+<br /><button class="btn" type="submit" id="Registration-button" (click)="saveBed()">
+        Register
+      </button>
+
+</div>
+
+<div class="footer">
+  <footer>
+    Philips Boot camp case study
+  </footer>
+
+</div>

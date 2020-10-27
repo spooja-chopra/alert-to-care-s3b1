@@ -16,45 +16,32 @@ export class VitalsComponent implements OnInit {
   ngOnInit(): void {
     this.vitals = new Vitals(null,null,null);
   }
-
-  // checkVitals(formData){
-  //   console.log(formData);
-  //   this.url = "http://localhost:8081/monitor"
-
-  // }
-  // this.http.post(this.url, {
-  //   spo2 : FormData.spo2,
-  //   respRate : FormData.respRate,
-  //   bpm : FormData.bpm
-  // }).toPromise().then(data : any) => {
-  //   let flag = false;
-  //   data.forEach((value, index) => {
-  //     var str = value.errorMessage.split(" ");
-  //     if(str[2] != "normal"){
-  //       flag = true;
-  //       window.alert("Alert the doctor :" + value.errorMessage);
-  //     }
-  //   });
-  //   if(!flag){
-  //     window.alert("All Vitals are normal");
-  //   }
-  // }
-
-  checkVitals(vitals){
-    if(vitals.bpm < 70)
-    window.alert("BP too Low");
-    if(vitals.bpm > 150)
-    window.alert("BP too High");
-    if(vitals.spo2 < 90)
-    window.alert("spo2 too Low");
-    if(vitals.respRate < 30)
-    window.alert("respRate too Low");
-    if(vitals.respRate > 90)
-    window.alert("respRate too high");
-
-    if((vitals.bpm<150 && vitals.bpm >70) && (vitals.spo2>90) && (vitals.respRate<90 && vitals.respRate >30)){
-      window.alert("Vitals are normal");
+  checkBpm(bpm){
+    if(this.vitals.bpm < 70)
+    window.alert("BPM too Low");
+    else if(this.vitals.bpm > 150)
+    window.alert("BPM too High");
+    else{
+      window.alert("BPM is normal")
     }
-
   }
+
+  checkSpo2(spo2){
+    if(this.vitals.spo2 < 90)
+    window.alert("spo2 too Low");
+    else{
+      window.alert("spo2 is normal")
+    }
+  }
+
+  checkRespRate(respRate){
+    if(this.vitals.respRate < 30)
+    window.alert("respRate too Low");
+    else if(this.vitals.respRate > 90)
+    window.alert("respRate too high");
+    else{
+      window.alert("respRate is normal")
+    }
+  }
+
 }

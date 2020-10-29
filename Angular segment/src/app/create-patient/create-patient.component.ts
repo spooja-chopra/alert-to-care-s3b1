@@ -15,7 +15,7 @@ export class CreatePatientComponent implements OnInit {
  
   @Input() patientDetails = { name: '', age: '', phoneNumber: 0, bedId: 0 }
 
-private url = 'http://localhost:8081/api/v1/patients';
+private url = 'http://localhost:8081/patients';
   items = [];
   router: any;
 
@@ -34,10 +34,8 @@ private url = 'http://localhost:8081/api/v1/patients';
     this.http.get(this.url).toPromise().then(data => {
 
       for(let key in data){
-        //console.log(data[key])
         this.items.push(data[key]);
       }
-     // console.log(data);
     });
   }
 
@@ -53,7 +51,6 @@ private url = 'http://localhost:8081/api/v1/patients';
     }).toPromise().then((data:any) => {
       
       this.loadPatient();
-   // this.router.navigate(['/patient-list']);
    
     }) }
   

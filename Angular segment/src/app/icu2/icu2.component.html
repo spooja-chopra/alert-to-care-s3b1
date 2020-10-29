@@ -7,21 +7,11 @@
         <div class = "card-body">
             <table class= "col-sm-3 table table-striped">
                 <thead>
-                    <!-- <th>bed_id</th> -->
-                    <!-- <th>serial_number</th> -->
-                   <!--  <th>availability</th>
-                    <th>icu_number</th> -->
-                
+             
                 </thead>
                 <tbody>
                     <tr *ngFor = "let bed of beds" [ngClass] = "{red: bed.bedAvailability == false, green : bed.bedAvailability == true}" >
-                    <!-- <td *ngIf = "bed.icuNumber==1"> {{bed.bedId}} </td> -->
                     <td *ngIf = "bed.icuNumber==2"><img  [src]="myimage" height="80px" width="50px" routerLink = "/vitals"> {{bed.bedId}} , {{bed.bedSerialNumber}} </td>
-                    <!-- <td *ngIf = "bed.icuNumber==1"> {{bed.bedAvailability}} </td>
-                    <td *ngIf = "bed.icuNumber==1"> {{bed.icuNumber}} </td>
-                    <td *ngIf = "bed.icuNumber==1"><button type="submit" id="Delete-button" (click)="deleteBed(bed_id)">
-                        Delete
-                      </button></td> -->
                     </tr>
                 </tbody>
             </table>

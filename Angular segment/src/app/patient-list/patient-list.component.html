@@ -1,46 +1,8 @@
-<p>patient-list works!</p>
-<p>patient-list works!</p>
-<!-- <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>Patient List</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Phone No</th>
-            <th>Bed ID</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let patient of patient | async">
-            <td>{{patient.name}}</td>
-            <td>{{patient.age}}</td>
-            <td>{{patient.phone_no}}</td>
-            <td>{{patient.bed_id}}</td>
-            <td><button (click)="dischargePatient(patient.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updatePatient(patient.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                <button (click)="patientDetails(patient.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
+   <div class="header">
+    <h1>Alert To Care</h1>
   </div>
-   -->
    <div class="container custom-container-2">
-
-  <!-- Show it when there is no patient -->
-  <!-- <div class="no-data text-center" *ngIf="data.length == 0">
-    <p>There is no patient added yet!</p>
-    <button class="btn btn-outline-primary" routerLink="/create-patient">Add Patient</button>
-  </div> -->
-
-  <!-- Patient list table, it hides when there is no employee -->
-  <!-- <div *ngIf="data.length !== 0"> -->
     <h3 class="mb-3 text-center">Patient List</h3>
 
     <div class="col-md-12">
@@ -63,9 +25,6 @@
             <td>{{data.phoneNumber}}</td>
             <td>{{data.bed.bedId}}</td>
             <td>
-              <!-- <span class="edit" routerLink="/update-patient/{{data.id}}">Update</span> -->
-              <button (click)="updatePatient(data.patientId)" class="btn btn-info" style="margin-left: 10px">Update</button>
-              <!-- <span class="delete" (click)="deletePatient(data.id)">Delete</span> -->
               <button (click)="deletePatient(data.patientId)" class="btn btn-info" style="margin-left: 10px">Delete</button>
             </td>
           </tr>
@@ -74,6 +33,11 @@
     </div>
 
   </div>
-
+  <div class="footer">
+    <footer>
+      Philips Boot camp case study
+    </footer>
+  
+  </div>
 
   

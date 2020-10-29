@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class PatientListComponent implements OnInit {
 
-  private url = 'http://localhost:8081/api/v1/patients';
+  private url = 'http://localhost:8081/patients';
   items = [];
   router: any;
 
@@ -26,19 +26,16 @@ export class PatientListComponent implements OnInit {
     ngOnInit() {
       this.loadPatient()
     }
-    // Get patient list
     loadPatient() {
   
       this.http.get(this.url).toPromise().then(data => {
 
         for(let key in data){
-          //console.log(data[key])
           this.items.push(data[key]);
         }
         console.log(data);
       });
     }
-    // Delete patient
     deletePatient(id: number) {
       if (window.confirm('Are you sure, you want to delete?')){
         return this.http.delete(this.url+'/'+ id).subscribe(data => {
@@ -56,10 +53,8 @@ export class PatientListComponent implements OnInit {
       handleError(error) {
         let errorMessage = '';
         if(error.error instanceof ErrorEvent) {
-          // Get client-side error
           errorMessage = error.error.message;
         } else {
-          // Get server-side error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
         window.alert(errorMessage);
